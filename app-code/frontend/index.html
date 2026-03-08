@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Three Tier DevSecOps</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+            height: 100vh;
+            margin:0;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+        }
+
+        .container {
+            text-align:center;
+            background: rgba(0,0,0,0.4);
+            padding:40px;
+            border-radius:12px;
+            box-shadow:0px 10px 30px rgba(0,0,0,0.5);
+            width:400px;
+        }
+
+        h1{
+            margin-bottom:10px;
+        }
+
+        button{
+            margin-top:20px;
+            padding:12px 25px;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            background:#00c6ff;
+            background:linear-gradient(45deg,#00c6ff,#0072ff);
+            color:white;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:scale(1.05);
+            box-shadow:0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        #result{
+            margin-top:20px;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚀 Three Tier DevSecOps</h1>
+
+<p>Frontend deployed on Kubernetes</p>
+
+<button onclick="checkBackend()">Check Backend</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function checkBackend(){
+
+     fetch("/api")
+    .then(res => res.json())
+    .then(data => {
+
+        document.getElementById("result").innerText = data.message
+
+    })
+    .catch(err => {
+
+        document.getElementById("result").innerText = "Backend not reachable"
+
+    })
+
+}
+
+</script>
+
+</body>
+</html>
